@@ -35,7 +35,7 @@ end
 x=h/2:h:(L-h/2);
 ut=(1-(sinh(k*(L-x))+sinh(k*x))/sinh(k*L))*(1/(k^2))+U0*(sinh(k*(L-x))/sinh(k*L));
 plot(x,ut,x,u(2:n+1))
-title('Dirichlet Boundary Conditions, N=10')
+title('Dirichlet Boundary Conditions, N=20')
 xlabel('x')
 ylabel('u')
 
