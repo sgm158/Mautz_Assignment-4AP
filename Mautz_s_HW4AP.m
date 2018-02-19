@@ -34,7 +34,10 @@ end
 %%Graphing
 x=h/2:h:(L-h/2);
 ut=(1-(sinh(k*(L-x))+sinh(k*x))/sinh(k*L))*(1/(k^2))+U0*(sinh(k*(L-x))/sinh(k*L));
-%%plot(x,ut,x,u(2:n+1))
+plot(x,ut,x,u(2:n+1))
+title('Dirichlet Boundary Conditions, N=10')
+xlabel('x')
+ylabel('u')
 
 %%Part 2
 h=L/n;
@@ -61,4 +64,4 @@ for i=n+1:-1:1
     u(i)=d1(i)-c1(i)*u(i+1);
 end
 ut2=(1-(cosh(k*x)/cosh(k*L))*(1/(k^2)))-(v/k)*(sinh(k*(L-x))/cosh(k*L));
-plot(x,ut2,x,u(2:n+1))
+%%plot(x,ut2,x,u(2:n+1))
