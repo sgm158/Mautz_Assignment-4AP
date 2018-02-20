@@ -1,5 +1,5 @@
 %%Boundary Conditions and givens
-n=10; %increase for grid convergence
+n=80; %increase for grid convergence
 L=1;
 k=10;
 lambda=(k^2);
@@ -43,15 +43,15 @@ ut=(((sinh(k*(L-x))+sinh(k*x))/sinh(k*L))-1)*(1/(k^2))+U0*(sinh(k*(L-x))/sinh(k*
 %%Part 2
 h=L/n;
 U0=1
-a=ones(n+2,1);
-b=-(2+lambda*(h^2))*ones(n+2,1);
-c=ones(n+2,1);
+a=-ones(n+2,1);
+b=(2+lambda*(h^2))*ones(n+2,1);
+c=-ones(n+2,1);
 d=zeros(n+2,1);
 b(1)=1;
 a(n+2)=1;
 c(1)=-1
 b(n+2)=1
-d(1)=v*h;
+d(1)=1/8;
 %%Forward elimination
 d1=zeros(n+2,1);
 c1=zeros(n+2,1);
@@ -70,7 +70,7 @@ end
 ut2=((cosh(k*x)/cosh(k*L))-1)*(1/(k^2))-(v/k)*(sinh(k*(L-x))/cosh(k*L));
 plot(x,ut2,x,u(2:n+1))
 plot(x,ut,x,u(2:n+1))
-title('Case Two, N=10, k=10')
+title('Case Two, N=20, k=10')
 xlabel('x')
 ylabel('u')
 legend('Theoretical Temperature','Actual Temperature')
