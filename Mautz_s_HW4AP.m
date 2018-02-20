@@ -1,5 +1,5 @@
 %%Boundary Conditions and givens
-n=20; %increase for grid convergence
+n=10; %increase for grid convergence
 L=1;
 k=10;
 lambda=(k^2);
@@ -33,11 +33,12 @@ for i=n+1:-1:1
 end
 %%Graphing
 x=h/2:h:(L-h/2);
-ut=(1-(sinh(k*(L-x))+sinh(k*x))/sinh(k*L))*(1/(k^2))+U0*(sinh(k*(L-x))/sinh(k*L));
+ut=(((sinh(k*(L-x))+sinh(k*x))/sinh(k*L))-1)*(1/(k^2))+U0*(sinh(k*(L-x))/sinh(k*L));
 plot(x,ut,x,u(2:n+1))
-title('Dirichlet Boundary Conditions, N=20')
+title('Case One, N=10, k=10')
 xlabel('x')
 ylabel('u')
+legend('Theoretical Temperature','Actual Temperature')
 
 %%Part 2
 h=L/n;
