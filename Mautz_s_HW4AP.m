@@ -1,5 +1,5 @@
 %%Boundary Conditions and givens
-n=10; %increase for grid convergence
+n=20; %increase for grid convergence
 L=1;
 k=10;
 lambda=(k^2);
@@ -49,9 +49,9 @@ c=ones(n+2,1);
 d=zeros(n+2,1);
 b(1)=1;
 a(n+2)=1;
-c(1)=1
+c(1)=-1
 b(n+2)=1
-d(1)=-v*h^2;
+d(1)=-v*h;
 %%Forward elimination
 d1=zeros(n+2,1);
 c1=zeros(n+2,1);
@@ -59,7 +59,7 @@ d1(1)=d(1)/b(1);
 c1(1)=c(1)/b(1);
 for i=2:n+2
     c1(i)=c(i)/(b(i)-a(i)*c1(i-1));
-    d1(i)=(d(i)-a(i)*d1(i-1))/b(i)-a(i)*c1(i-1);
+    d1(i)=(d(i)-a(i)*d1(i-1))/(b(i)-a(i)*c1(i-1));
 end
 %Back Substitiution
 u=zeros(n+2,1);
