@@ -84,7 +84,7 @@ error_n=abs(sum(du_n))
 
 %%2n
 %%Boundary Conditions and givens
-n=2*10; %increase for grid convergence
+n=2*n; %increase for grid convergence
 L=1;
 k=100;
 lambda=(k^2);
