@@ -1,5 +1,5 @@
 %%Boundary Conditions and givens
-n=10; %increase for grid convergence
+n=80; %increase for grid convergence
 L=1;
 k=100;
 lambda=(k^2);
