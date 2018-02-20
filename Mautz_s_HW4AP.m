@@ -1,7 +1,7 @@
 %%Boundary Conditions and givens
-n=10; %increase for grid convergence
+n=20; %increase for grid convergence
 L=1;
-k=10;
+k=100;
 lambda=(k^2);
 U0=1;
 v=1;
@@ -34,8 +34,8 @@ end
 %%Graphing
 x=h/2:h:(L-h/2);
 ut=(((sinh(k*(L-x))+sinh(k*x))/sinh(k*L))-1)*(1/(k^2))+U0*(sinh(k*(L-x))/sinh(k*L));
-plot(x,ut,x,u(2:n+1))
-title('Case One, N=10, k=10')
+%%plot(x,ut,x,u(2:n+1))
+title('Case One, N=20, k=100')
 xlabel('x')
 ylabel('u')
 legend('Theoretical Temperature','Actual Temperature')
@@ -64,5 +64,5 @@ u(n+2)=d1(n+2);
 for i=n+1:-1:1
     u(i)=d1(i)-c1(i)*u(i+1);
 end
-ut2=(1-(cosh(k*x)/cosh(k*L))*(1/(k^2)))-(v/k)*(sinh(k*(L-x))/cosh(k*L));
-%%plot(x,ut2,x,u(2:n+1))
+ut2=((cosh(k*x)/cosh(k*L))-1)*(1/(k^2))-(v/k)*(sinh(k*(L-x))/cosh(k*L));
+plot(x,ut2,x,u(2:n+1))
