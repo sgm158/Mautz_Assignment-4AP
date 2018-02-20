@@ -1,5 +1,5 @@
 %%Boundary Conditions and givens
-n=80; %increase for grid convergence
+n=10; %increase for grid convergence
 L=1;
 k=10;
 lambda=(k^2);
@@ -42,13 +42,16 @@ ut=(((sinh(k*(L-x))+sinh(k*x))/sinh(k*L))-1)*(1/(k^2))+U0*(sinh(k*(L-x))/sinh(k*
 
 %%Part 2
 h=L/n;
+U0=1
 a=ones(n+2,1);
 b=-(2+lambda*(h^2))*ones(n+2,1);
 c=ones(n+2,1);
 d=zeros(n+2,1);
 b(1)=1;
 a(n+2)=1;
-d(1)=-v*h;
+c(1)=1
+b(n+2)=1
+d(1)=-v*h^2;
 %%Forward elimination
 d1=zeros(n+2,1);
 c1=zeros(n+2,1);
